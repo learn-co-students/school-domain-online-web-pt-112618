@@ -3,8 +3,8 @@ require "pry"
 class School
   attr_accessor :roster
   
-  def initialize(school)
-    @school = school
+  def initialize(name)
+    @name = name
     @roster = {}
   end  
   
@@ -16,12 +16,14 @@ class School
   end  
   
   def grade(grade)
-    @roster[grade].map {|name| name }
+    @roster[grade]
+    #roster[grade].map {|name| name }
+   # binding.pry
   end
   
   def sort # this one was a bit confusing I wanted to use map
-    sort_students = {}
-    @roster.each {|grade, name| sort_students[grade] = name.sort}
-    sort_students
+    #sort_students = {} sort returns a new array even if each is called
+    @roster.each {|grade, name| @roster[grade] = name.sort}
+    #sort_students
   end  
 end  
